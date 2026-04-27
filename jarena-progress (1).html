@@ -337,7 +337,54 @@
     /* ── TOAST ── */
     .toast{position:fixed;bottom:24px;right:24px;background:var(--surface);border:1px solid var(--green);border-radius:10px;padding:12px 17px;display:flex;align-items:center;gap:8px;font-size:13px;color:var(--green);z-index:999;transform:translateY(80px);opacity:0;transition:transform .3s,opacity .3s;}
     .toast.show{transform:translateY(0);opacity:1;}
-
+/* ── TEAM SECTION ── */
+.team-section{margin-bottom:48px;}
+.team-grid{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:14px;
+}
+.team-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:20px 14px 16px;
+  display:flex;flex-direction:column;align-items:center;
+  text-align:center;
+  position:relative;overflow:hidden;
+  transition:border-color .25s,transform .25s;
+}
+.team-card:hover{border-color:var(--accent);transform:translateY(-4px);}
+.team-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;}
+.team-card:nth-child(1)::before{background:var(--accent);}
+.team-card:nth-child(2)::before{background:var(--accent3);}
+.team-card:nth-child(3)::before{background:var(--pink);}
+.team-card:nth-child(4)::before{background:var(--yellow);}
+.team-card:nth-child(5)::before{background:var(--green);}
+.team-card:nth-child(6)::before{background:var(--orange);}
+.team-avatar{
+  width:74px;height:74px;border-radius:50%;
+  object-fit:cover;border:2px solid var(--border);
+  margin-bottom:12px;background:var(--surface2);display:block;
+}
+.team-initials{
+  width:74px;height:74px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Bebas Neue',sans-serif;font-size:24px;
+  margin-bottom:12px;border:2px solid var(--border);flex-shrink:0;
+}
+.ti-1{background:rgba(0,212,170,.15);color:var(--accent);}
+.ti-2{background:rgba(79,158,255,.15);color:var(--accent3);}
+.ti-3{background:rgba(244,114,182,.15);color:var(--pink);}
+.ti-4{background:rgba(245,158,11,.15);color:var(--yellow);}
+.ti-5{background:rgba(34,197,94,.15);color:var(--green);}
+.ti-6{background:rgba(251,146,60,.15);color:var(--orange);}
+.team-name{font-size:13px;font-weight:700;margin-bottom:4px;line-height:1.2;}
+.team-role{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:2px 8px;border-radius:4px;}
+.role-leader{background:rgba(0,212,170,.12);color:var(--accent);}
+.role-dev{background:rgba(79,158,255,.1);color:var(--accent3);}
+@media(max-width:960px){.team-grid{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:680px){.team-grid{grid-template-columns:repeat(2,1fr);}}
     /* ── ANIMS ── */
     @keyframes up{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
     .au{animation:up .5s ease forwards;}
@@ -349,6 +396,7 @@
 
     @media(max-width:960px){.mod-grid{grid-template-columns:1fr 1fr;}.stats{grid-template-columns:repeat(3,1fr);}}
     @media(max-width:680px){.mod-grid{grid-template-columns:1fr;}.board{grid-template-columns:1fr;}.fg{grid-template-columns:1fr;}.stats{grid-template-columns:1fr 1fr;}.hero-title{font-size:48px;}.mg-3{grid-template-columns:1fr 1fr;}}
+  
   </style>
 </head>
 <body>
@@ -390,7 +438,62 @@
     <h1 class="hero-title">BOOKING<br><span class="hollow">SYSTEM</span></h1>
     <p class="hero-desc">Full-stack sports venue booking platform for J Arena — 6 integrated modules covering fields, bookings, payments, notifications, event promotion, and team tournaments.</p>
   </section>
+<!-- ══ TEAM SECTION ══ -->
+<div class="sec-label">// Our Team — 6 Members</div>
+<div class="team-section">
+  <div class="team-grid">
 
+    <div class="team-card au">
+      <img class="team-avatar" src="images/naim.jpg" alt="Naim Fikri"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+      <div class="team-initials ti-1" style="display:none;">NF</div>
+      <div class="team-name">Naim Fikri</div>
+      <span class="team-role role-leader">Project Leader</span>
+    </div>
+
+    <div class="team-card au">
+      <img class="team-avatar" src="images/faris.jpg" alt="Faris"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+      <div class="team-initials ti-2" style="display:none;">FA</div>
+      <div class="team-name">Faris</div>
+      <span class="team-role role-dev">Developer</span>
+    </div>
+
+    <div class="team-card au">
+      <img class="team-avatar" src="images/shimaa.jpg" alt="Shimaa"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+      <div class="team-initials ti-3" style="display:none;">SH</div>
+      <div class="team-name">Shimaa</div>
+      <span class="team-role role-dev">Developer</span>
+    </div>
+
+    <div class="team-card au">
+      <img class="team-avatar" src="images/hodan.jpg" alt="Hodan"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+      <div class="team-initials ti-4" style="display:none;">HO</div>
+      <div class="team-name">Hodan</div>
+      <span class="team-role role-dev">Developer</span>
+    </div>
+
+    <div class="team-card au">
+      <img class="team-avatar" src="images/fouad.jpg" alt="Fouad"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+      <div class="team-initials ti-5" style="display:none;">FO</div>
+      <div class="team-name">Fouad</div>
+      <span class="team-role role-dev">Developer</span>
+    </div>
+
+    <div class="team-card au">
+      <img class="team-avatar" src="images/arnob.jpg" alt="Arnob"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+      <div class="team-initials ti-6" style="display:none;">AR</div>
+      <div class="team-name">Arnob</div>
+      <span class="team-role role-dev">Developer</span>
+    </div>
+
+  </div>
+</div>
+<!-- ══ END TEAM ══ -->
   <!-- STATS -->
   <div class="stats">
     <div class="sc c1 au"><div class="sv">6</div><div class="sl">Total Modules</div></div>
@@ -416,14 +519,14 @@
       <div class="ov-hdr">
         <div>
           <div class="ov-title">J Arena Booking System</div>
-          <div class="ov-sub">6 Modules · Target: End of May 2025</div>
+          <div class="ov-sub">6 Modules · Target: End of semester </div>
         </div>
-        <div class="ov-pct">37%</div>
+
       </div>
       <div class="track"><div class="fill" style="--w:37%;"></div></div>
     </div>
 
-    <div class="sec-label">// Module Breakdown</div>
+ 
     <div class="mod-grid">
 
       <!-- M1: Booking, Field & Schedule (merged) -->
@@ -431,8 +534,9 @@
         <div class="mod-num">Module 01</div>
         <div class="mod-name">Booking, Field & Schedule</div>
         <div class="mod-status-row">
-          <span class="sbadge sb-wip">In Progress</span>
-          <span class="mod-pct">45%</span>
+             <span class="sbadge sb-todo">To Do</span>
+    
+          
         </div>
         <div class="mod-bar-track"><div class="mod-bar-fill" style="--w:45%;"></div></div>
         <ul class="mod-features">
@@ -454,8 +558,8 @@
         <div class="mod-num">Module 02</div>
         <div class="mod-name">User & Authentication</div>
         <div class="mod-status-row">
-          <span class="sbadge sb-done">Completed</span>
-          <span class="mod-pct">100%</span>
+     <span class="sbadge sb-todo">To Do</span>
+    
         </div>
         <div class="mod-bar-track"><div class="mod-bar-fill" style="--w:100%;"></div></div>
         <ul class="mod-features">
@@ -472,8 +576,8 @@
         <div class="mod-num">Module 03</div>
         <div class="mod-name">Payment & Invoicing</div>
         <div class="mod-status-row">
-          <span class="sbadge sb-wip">In Progress</span>
-          <span class="mod-pct">25%</span>
+
+          <span class="sbadge sb-todo">To Do</span>
         </div>
         <div class="mod-bar-track"><div class="mod-bar-fill" style="--w:25%;"></div></div>
         <ul class="mod-features">
@@ -490,8 +594,9 @@
         <div class="mod-num">Module 04</div>
         <div class="mod-name">Notification & Reminder</div>
         <div class="mod-status-row">
-          <span class="sbadge sb-wip">In Progress</span>
-          <span class="mod-pct">30%</span>
+        
+          <span class="sbadge sb-todo">To Do</span>
+    
         </div>
         <div class="mod-bar-track"><div class="mod-bar-fill" style="--w:30%;"></div></div>
         <ul class="mod-features">
